@@ -1,0 +1,18 @@
+Maximize
+r 
+
+Subject To
+
+q-r>=0
+q+r<=2
+p-r>=0
+p+r<=10
+
+Bounds
+
+
+
+Generals
+r
+
+End
