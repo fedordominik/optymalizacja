@@ -1,0 +1,26 @@
+#Separacja punktow
+
+# Dane problemu
+
+W=[(2,5)]
+V=[(3,1)]
+
+# Rozwiązanie problemu
+
+p = MixedIntegerLinearProgram()
+var = p.new_variable() 
+
+A, B, C, d = var['A'], var['B'], var['C'], var['d']
+
+p.set_objective(d)
+
+p.add_constraint(A+B+C>=1)
+for w in W:
+    p.add_constraint(A*2+B*5+C-d>=0)
+#for v in V:
+#    p.add_constraint(A*v[0]+B*v[1]+C+d<=0)
+    
+p.add_constraint(d>=0)
+
+print 'Optymalna wartość funkcji celu = ', p.solve()
+print 'A=', p.get_values(A), ' B=', p.get_values(B), ' C=', p.get_values(C) 
