@@ -1,0 +1,26 @@
+%typeset_mode True
+
+sage: A = ([-1, 1], [1, 0])
+sage: b = (0, 2)
+sage: c = (0, 1)
+sage: P = InteractiveLPProblemStandardForm(A, b, c, ["x1", "x2"])
+sage: P
+sage: P.plot()
+sage: D = P.initial_dictionary()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+sage: D.enter("x2")
+sage: D.leave("x3")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+sage: D.enter("x1")
+sage: D.leave("x4")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+sage: print"zmienne bazowe " + str(D.basic_variables())
+sage: print"rozwiazanie bazowe " + str(D.basic_solution())
