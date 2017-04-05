@@ -1,0 +1,54 @@
+%typeset_mode True
+
+sage: A = ([1/4, -60, -1/25, 9], [1/2, -90, -1/50, 3], [0, 0, 1, 0])
+sage: b = (0, 0, 1)
+sage: c = (3/4, -150, 1/50, -6)
+sage: P = InteractiveLPProblemStandardForm(A, b, c, ["x1", "x2", "x3", "x4"])
+sage: P
+
+sage: D = P.initial_dictionary()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+
+sage: D.enter("x1")
+sage: D.leave("x5")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+
+sage: D.enter("x2")
+sage: D.leave("x6")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+
+sage: D.enter("x3")
+sage: D.leave("x1")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+
+sage: D.enter("x4")
+sage: D.leave("x2")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+
+sage: D.enter("x5")
+sage: D.leave("x3")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
+
+sage: D.enter("x6")
+sage: D.leave("x4")
+sage: D.update()
+sage: D
+sage: print"Czy dopuszczalne? " + str(D.is_feasible())
+sage: print"Czy optymalne? "+ str(D.is_optimal())
