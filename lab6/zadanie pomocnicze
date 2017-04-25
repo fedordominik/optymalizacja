@@ -1,0 +1,44 @@
+
+import scipy.optimize
+
+import sys
+
+A = ([1,3,1], [0,2,1] )
+b= (4,2)
+
+k=len(A[0])
+
+c=[]
+
+# ewentualna zamiana znaków
+for i in range(len(b)):
+        if b[i]<0:
+            for j in range(len(A[0])):
+                 A[i][j]=-A[i][j]
+            b[i]=-b[i]
+for i in range (len(b)):
+   
+        for j in range (len(b)):
+            if j == i:
+                A[j].append(1)
+            else:
+                A[j].append(0)
+for i in range(k):
+        c.append(0)
+for j in range(len(A[0])-k):
+        c.append(1)
+
+wyn=scipy.optimize.linprog(c, A_eq=A, b_eq=b, method='simplex', callback=None, options=None)
+rozw=wyn.x
+czy=False
+for i in range(len(A[0])-k, len(A[0])):
+    if rozw[i] != 0:
+        czy=True
+    else:
+        czy=False
+        
+if czy==True:
+        print("NIEDOPUSZCZALNE")
+else:
+        print("punktem startowym jest:")
+        show(rozw)
