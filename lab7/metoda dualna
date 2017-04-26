@@ -1,5 +1,5 @@
 A=([4,8],[2,1],[3,2])
-b=(2,3,4)
+b=(12,3,4)
 c=(2,3)
 P=InteractiveLPProblemStandardForm(A,b,c)
 
