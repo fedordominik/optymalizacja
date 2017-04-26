@@ -1,0 +1,11 @@
+A=([4,8],[2,1],[3,2])
+b=(2,3,4)
+c=(2,3)
+P=InteractiveLPProblemStandardForm(A,b,c)
+
+Ad=([4,2,3],[8,1,2])
+bd=(2,3)
+cd=(12,3,4)
+D=InteractiveLPProblem(Ad,bd,cd,"y" ,problem_type="min" , constraint_type=">=", variable_type=">=")
+show(D)
+show(D.standard_form().run_simplex_method())
