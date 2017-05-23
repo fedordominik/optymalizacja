@@ -1,0 +1,48 @@
+/* 
+
+			     y1		         y2		y3		y4		y5		y6		y7
+		         (0,0,6)	     (0,2,4)	     (0,3,3)  	     (1,1,4)	     (2,2,2)	     (0,1,5)	     (2,3,1)
+
+x1	(0,0,6)		  0		       -1/3		-1/3		-1		-1		-1/3		-1
+
+x2	(0,2,4)		  1/3		         0		  0		 0		 0		0		0
+
+x3	(0,3,3)		  1/3		         0		  0		 -1/3		 1		0		1/3		
+
+x4	(1,1,4)		  1		         0		  1/3		 0		 -1		1/3		0
+
+x5	(2,2,2)	   	  1		         0		 -1		 1		   0		1		0
+
+x6	(0,1,5)		  1/3			 0		 0		 -1/3		  -1		0		-2/3
+
+x7	(2,3,1)		  1			 0		 -1/3		 0		  0		2/3		0
+
+Gdzie każdy współczynnik oznacza średnią wygraną gracza x, np. jeśli gracz x gra (0,2,4) a gracz y (0,0,6) wtedy mamy 3!*3!:2!=18
+rozmieszczeń oddziałow, wygrana gracza x jest wtedy gdy tam gdzie on pośle 0 oddziałów, gracz y wyśle w to miejsce 5, mamy 6 takich
+przypadków (6,2,4),(6,4,2),(2,4,6),(4,2,6),(2,6,4),(4,6,2) w innych przypadkach gracz x zdobywa jedno wzgórze, gracz y jedno, a na
+trzecim wzgórzu jest remis, czyli w pozostałych przypadkach mamy ogólnie remis, średnia wygrana gracza x (6*1 + 12*0)/18=1/3
+
+
+
+y1(1/3x2 + 1/3x3 + x4 + x5 + 1/3x6 + x7) + y2(-1/3x1) + y3(-1/3x1 + 1/3x4 -x5 - 1/3x7)+ y4(-x1 - 1/3x3 +1x5 - 1/3x6) + 
++ y5(-x1  + 1x3 - 1x4 - x6) + y6(-1/3x1 + 1/3x4 + x5 + 2/3x7) + y7(-x1 + 1/3x3 - 2/3x6)
+
+B(x) = min(y) y1(1/3x2 + 1/3x3 + x4 + x5 + 1/3x6 + x7) + y2(-1/3x1) + y3(-1/3x1 + 1/3x4 -x5 - 1/3x7)+ y4(-x1 - 1/3x3 +1x5 - 1/3x6) + 
++ y5(-x1  + 1x3 - 1x4 - x6) + y6(-1/3x1 + 1/3x4 + x5 + 2/3x7) + y7(-x1 + 1/3x3 - 2/3x6)
+
+y1+y2+y3+y4+y5+y6+y7=1
+y1,y2,y3,y4,y5,y6,y7 >=0
+
+c=[1/3x2 + 1/3x3 + x4 + x5 + 1/3x6 + x7 , -1/3x1, -1/3x1 + 1/3x4 -x5 - 1/3x7, -x1 - 1/3x3 +1x5 - 1/3x6, -x1  + 1x3 - 1x4 - x6, -1/3x1 + 1/3x4 + x5 + 2/3x7, -x1 + 1/3x3 - 2/3x6]
+b=[1]
+A=[1,1,1,1,1,1,1]
+
+c'=[1]
+A'=[1,1,1,1,1,1,1]^T
+b'=c^T
+
+Wprowadzam x0 -> max
+x0=<b'
+i otrzymuje problem dualny jak niżej, do rozwiązania w solwerze   
+
+Zadanie rozwiązałem wspólnie z Maria Szymańska-Kowal  */
