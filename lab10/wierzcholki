@@ -19,12 +19,6 @@ for i in range(n):
         if A[i][j] == 1:
             nierownosc += x[i, j]
     lp.add_constraint(nierownosc <= 1)
-for j in range(n):
-    nierownosc = 0
-    for i in range(n):
-        if A[i][j] == 1:
-            nierownosc += x[i, j]
-    lp.add_constraint(nierownosc <= 1)
 print lp.solve()
 krawedzie = lp.get_values(x)
 print krawedzie
