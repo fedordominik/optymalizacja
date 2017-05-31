@@ -1,0 +1,30 @@
+
+# każdy z wektorów odpowiada jednemu z górnych wierzchołków grafu, a jego wartości oznaczają czy jest połączony z konkretnym wierzchołkiem dolnym
+
+A = [[1,0,1,0,0,1,0], [1,0,0,1,0,0,0], [0,1,1,0,1,0,0], [1,0,0,1,0,0,1], [0,1,0,0,0,0,1], [0,1,0,0,1,1,0], [0,0,1,0,0,0,1]]
+
+lp = MixedIntegerLinearProgram(maximization=True)
+x = lp.new_variable(integer=True, nonnegative=True)
+celu = 0
+n = len(A)
+for i in range(n):
+    for j in range(n):
+        if A[i][j] == 1:
+            celu += x[i, j]
+lp.set_objective(celu)
+
+for i in range(n):
+    nierownosc= 0
+    for j in range(n):
+        if A[i][j] == 1:
+            nierownosc += x[i, j]
+    lp.add_constraint(nierownosc <= 1)
+for j in range(n):
+    nierownosc = 0
+    for i in range(n):
+        if A[i][j] == 1:
+            nierownosc += x[i, j]
+    lp.add_constraint(nierownosc <= 1)
+print lp.solve()
+krawedzie = lp.get_values(x)
+print krawedzie
