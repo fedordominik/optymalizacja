@@ -1,3 +1,5 @@
+zadanie wykonane wspólnie z Maria Szymańska-Kowal
+
 A = ([1,3,1], [0,2,1] )
 b= (4,2)
 zwraca 1,1
