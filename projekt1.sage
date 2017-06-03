@@ -122,13 +122,13 @@ def smallest_growth_leaving(self):
     return n
 
 
-# 8. First in line 
+# 8. Second in line 
 
 
-def first_in_line_entering(self):
-    return self.possible_entering()[0]
-def first_in_line_leaving(self):
-    return self.possible_leaving()[0]
+def second_in_line_entering(self):
+    return self.possible_entering()[1]
+def second_in_line_leaving(self):
+    return self.possible_leaving()[1]
     
 #
 # Wybor funkcji pivot
