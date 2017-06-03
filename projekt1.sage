@@ -1,4 +1,4 @@
-\* 1. Largest coefficient *\
+# 1. Largest coefficient 
 
 def largest_coefficient_entering(self):
     z=list(self.objective_coefficients())
@@ -9,7 +9,7 @@ def largest_coefficient_entering(self):
 def largest_coefficient_leaving(self):
     return self.possible_leaving()[0]
     
-\* 2. Largest increase *\
+# 2. Largest increase 
 
 def largest_growth_entering(self):
     z=self.objective_value()
@@ -44,10 +44,10 @@ def largest_growth_leaving(self):
     return n
     
     
-\* 3. Steepest edge *\
+ # 3. Steepest edge 
 
 
-\* 4. Bland'd rule *\
+# 4. Bland'd rule 
 
 def lexicographical_min_entering(self):
 	return min(self.possible_entering())
@@ -55,7 +55,7 @@ def lexicographical_min_entering(self):
 def lexicographical_min_leaving(self):
 	return min(self.possible_leaving())
   
-\* 5. Random edge *\
+# 5. Random edge 
 
 def random_edge_entering(self):
     x=list(self.possible_entering())
@@ -65,7 +65,7 @@ def random_edge_leaving(self):
     x=list(self.possible_leaving())
     return random.choice(x)
     
-\* 6. Smallest coefficient *\ 
+# 6. Smallest coefficient  
 
 def smallest_coefficient_entering(self):
     z=list(self.objective_coefficients())
@@ -77,7 +77,7 @@ def smallest_coefficient_leaving(self):
     return self.possible_leaving()[0]
     
     
-\* 7. Smallest increase *\
+ # 7. Smallest increase 
 
 def smallest_growth_entering(self):
     z=self.objective_value()
@@ -111,7 +111,7 @@ def smallest_growth_leaving(self):
                 n=y
     return n
  
-\* 8. First in line *\
+# 8. First in line 
 
 
 def first_in_line_entering(self):
