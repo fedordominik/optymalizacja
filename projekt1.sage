@@ -80,37 +80,48 @@ def smallest_coefficient_leaving(self):
  # 7. Smallest increase 
 
 def smallest_growth_entering(self):
-    z=self.objective_value()
+    C=deepcopy(self)
+    m=C.possible_entering()[0]
+    C.enter(m)
+    n=C.possible_leaving()[0]
+    C.leave(n)
+    C.update()
+    a=C.objective_value()
     for x in self.possible_entering():
         P=deepcopy(self)
         P.enter(x)
         for y in P.possible_leaving():
-            C=deepcopy(P)
-            C.leave(y)
-            C.update()
-            k=C.objective_value()
-            if k<=z:
-                z=k
+            B=deepcopy(P)
+            B.leave(y)
+            B.update()
+            k=B.objective_value()
+            if k<a:
                 m=x
                 n=y
     return m
 
 def smallest_growth_leaving(self):
-    z=self.objective_value()
+    C=deepcopy(self)
+    m=C.possible_entering()[0]
+    C.enter(m)
+    n=C.possible_leaving()[0]
+    C.leave(n)
+    C.update()
+    a=C.objective_value()
     for x in self.possible_entering():
         P=deepcopy(self)
         P.enter(x)
         for y in P.possible_leaving():
-            C=deepcopy(P)
-            C.leave(y)
-            C.update()
-            k=C.objective_value()
-            if k<=z:
-                z=k
+            B=deepcopy(P)
+            B.leave(y)
+            B.update()
+            k=B.objective_value()
+            if k<a:
                 m=x
                 n=y
     return n
- 
+
+
 # 8. First in line 
 
 
