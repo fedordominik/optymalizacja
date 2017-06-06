@@ -69,10 +69,15 @@ def random_edge_leaving(self):
 
 def smallest_coefficient_entering(self):
     z=list(self.objective_coefficients())
-    x=min(z)
-    x=z.index(x)
+    for x in z:
+        if x<0:
+            a=z.index(x)
+            z[a]=10000
+            
+    w=min(z)
+    w=z.index(w)
     y=list(self.nonbasic_variables())
-    return y[x]
+    return y[w]
 def smallest_coefficient_leaving(self):
     return self.possible_leaving()[0]
     
