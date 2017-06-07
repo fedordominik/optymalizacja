@@ -1,3 +1,26 @@
+import numpy as np
+from numpy import linalg as LA
+import random
+
+def steepest_edge(self):
+    C=deepcopy(self)
+    k=-1
+    a=self.basic_solution()
+    z=self.objective_coefficients()
+    for x in self.possible_entering():
+        C.enter(x)
+        for y in self.possible_leaving:
+            C.leave(y)
+            C.update()
+            b=C.basic_solution()
+            d=b-a
+            m=np.dot(z,a)/(LA.norm(d)*LA.norm(z))
+            if m>k:
+                k=m
+                i=x
+                j=y
+    return i
+
 # 1. Largest coefficient 
 
 def largest_coefficient_entering(self):
@@ -45,6 +68,45 @@ def largest_growth_leaving(self):
     
     
  # 3. Steepest edge 
+	
+
+def steepest_edge_entering(self):
+    k=-1
+    a=self.basic_solution()
+    z=self.objective_coefficients()
+    for x in self.possible_entering():
+	C=deepcopy(self)
+        C.enter(x)
+        for y in C.possible_leaving:
+            C.leave(y)
+            C.update()
+            b=C.basic_solution()
+            d=b-a
+            m=np.dot(z,a)/(LA.norm(d)*LA.norm(z))
+            if m>k:
+                k=m
+                i=x
+                j=y
+    return i
+
+def steepest_edge_leaving(self):
+    k=-1
+    a=self.basic_solution()
+    z=self.objective_coefficients()
+    for x in self.possible_entering():
+	C=deepcopy(self)
+        C.enter(x)
+        for y in C.possible_leaving:
+            C.leave(y)
+            C.update()
+            b=C.basic_solution()
+            d=b-a
+            m=np.dot(z,a)/(LA.norm(d)*LA.norm(z))
+            if m>k:
+                k=m
+                i=x
+                j=y
+    return j
 
 
 # 4. Bland'd rule 
