@@ -2,24 +2,6 @@ import numpy as np
 from numpy import linalg as LA
 import random
 
-def steepest_edge(self):
-    C=deepcopy(self)
-    k=-1
-    a=self.basic_solution()
-    z=self.objective_coefficients()
-    for x in self.possible_entering():
-        C.enter(x)
-        for y in self.possible_leaving:
-            C.leave(y)
-            C.update()
-            b=C.basic_solution()
-            d=b-a
-            m=np.dot(z,a)/(LA.norm(d)*LA.norm(z))
-            if m>k:
-                k=m
-                i=x
-                j=y
-    return i
 
 # 1. Largest coefficient 
 
