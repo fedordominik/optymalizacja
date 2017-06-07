@@ -130,6 +130,7 @@ def random_edge_leaving(self):
     return random.choice(x)
     
 # 6. Smallest coefficient  
+# nie dziala
 
 def smallest_coefficient_entering(self):
     z=list(self.objective_coefficients())
@@ -198,6 +199,48 @@ def first_in_line_entering(self):
     return self.possible_entering()[0]
 def first_in_line_leaving(self):
     return self.possible_leaving()[0]
+
+# 9. Farest edge
+
+def farest_edge_entering(self):
+    k=1
+    a=self.basic_solution()
+    z=self.objective_coefficients()
+    for x in self.possible_entering():
+        C=deepcopy(self)
+        C.enter(x)
+        for y in C.possible_leaving():
+            P=deepcopy(C)
+            P.leave(y)
+            P.update()
+            b=P.basic_solution()
+            d=b-a
+            m=np.dot(z,d)/(LA.norm(d)*LA.norm(z))
+            if m<k:
+                k=m
+                i=x
+                j=y
+    return i
+
+def farest_edge_leaving(self):
+    k=1
+    a=self.basic_solution()
+    z=self.objective_coefficients()
+    for x in self.possible_entering():
+        C=deepcopy(self)
+        C.enter(x)
+        for y in C.possible_leaving():
+            P=deepcopy(C)
+            P.leave(y)
+            P.update()
+            b=P.basic_solution()
+            d=b-a
+            m=np.dot(z,d)/(LA.norm(d)*LA.norm(z))
+            if m<k:
+                k=m
+                i=x
+                j=y
+    return j
     
 #
 # Wybor funkcji pivot
