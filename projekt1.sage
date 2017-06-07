@@ -26,7 +26,7 @@ def largest_growth_entering(self):
             C.leave(y)
             C.update()
             k=C.objective_value()
-            if k>z:
+            if k>=z:
                 z=k
                 m=x
                 n=y
@@ -42,7 +42,7 @@ def largest_growth_leaving(self):
             C.leave(y)
             C.update()
             k=C.objective_value()
-            if k>z:
+            if k>=z:
                 z=k
                 m=x
                 n=y
