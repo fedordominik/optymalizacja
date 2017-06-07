@@ -184,7 +184,7 @@ def first_in_line_leaving(self):
 
 # 9. Farest edge
 
-def farest_edge_entering(self):
+def farthest_edge_entering(self):
     k=1
     a=self.basic_solution()
     z=self.objective_coefficients()
@@ -204,7 +204,7 @@ def farest_edge_entering(self):
                 j=y
     return i
 
-def farest_edge_leaving(self):
+def farthest_edge_leaving(self):
     k=1
     a=self.basic_solution()
     z=self.objective_coefficients()
