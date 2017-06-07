@@ -75,14 +75,15 @@ def steepest_edge_entering(self):
     a=self.basic_solution()
     z=self.objective_coefficients()
     for x in self.possible_entering():
-	C=deepcopy(self)
+        C=deepcopy(self)
         C.enter(x)
-        for y in C.possible_leaving:
-            C.leave(y)
-            C.update()
-            b=C.basic_solution()
+        for y in C.possible_leaving():
+            P=deepcopy(C)
+            P.leave(y)
+            P.update()
+            b=P.basic_solution()
             d=b-a
-            m=np.dot(z,a)/(LA.norm(d)*LA.norm(z))
+            m=np.dot(z,d)/(LA.norm(d)*LA.norm(z))
             if m>k:
                 k=m
                 i=x
@@ -94,14 +95,15 @@ def steepest_edge_leaving(self):
     a=self.basic_solution()
     z=self.objective_coefficients()
     for x in self.possible_entering():
-	C=deepcopy(self)
+        C=deepcopy(self)
         C.enter(x)
-        for y in C.possible_leaving:
-            C.leave(y)
-            C.update()
-            b=C.basic_solution()
+        for y in C.possible_leaving():
+            P=deepcopy(C)
+            P.leave(y)
+            P.update()
+            b=P.basic_solution()
             d=b-a
-            m=np.dot(z,a)/(LA.norm(d)*LA.norm(z))
+            m=np.dot(z,d)/(LA.norm(d)*LA.norm(z))
             if m>k:
                 k=m
                 i=x
