@@ -107,16 +107,16 @@ def union_subtree(parent, N, tablica):
             tree=Node()
             tree.__init__(i, parent, tablica[i][3])
             parent.addChild(tree)
-            WSA_subtree(tree, N, tablica)
+            union_subtree(tree, N, tablica)
     return parent
     
-def WSA_tree(N, tablica):
+def union_tree(N, tablica):
     tree=Node()
     for i in range(N):
         if tablica[i][1]==i:
             root=i
             tree.__init__(root,0, tablica[i][3])
-    WSA_subtree(tree, N, tablica)
+    union_subtree(tree, N, tablica)
     return tree
 
   
