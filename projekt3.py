@@ -129,4 +129,20 @@ for i in range(N):
     else:
         print '+',
     print "x" + str(i),
+    
+print "Subject To"
+
+def warunek(tree, N):
+    x= len(tree.getChilds())
+    f=True
+    for i in range(x):
+        if f:
+            f=False
+        else:
+            print 'x',
+        print "x" + str(i),
+    print '>=', tree.min_dep
+    for i in range(x):
+        warunek(tree.getChilds()[i], N)
+    return 0
                       
