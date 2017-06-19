@@ -13,9 +13,10 @@ tablica=np.array([[1,0,1,2], [2,0,1,2], [2,1,2,0], [2,1,0,1], [1,3,0,0]])
 N=5
 
 class Node:
-    def __init__(self, name="Node", parent=None):
+    def __init__(self, name="Node", parent=None, minimal=Integer):
         self.__parent__=parent
         self.__childs__=[]
+        self.min_dep=minimal
         self.name=name #nazwa
     def isRoot(self): #jest korzeniem, czy nie posiada rodzica
         if self.__parent__==None: return True
@@ -60,7 +61,7 @@ class Node:
         if newChild in self.__childs__: return None
         if newChild.getParent()!=None:
             newChild.getParent().removeChild(newChild) #wcześniej musi jednak
-# usunąć je od poprzedniego rodzica
+                                                       # usunąć je od poprzedniego rodzica
         self.__childs__.append(newChild)
         newChild.__parent__=self
     def getRoot(self): #szuka korzeni
@@ -117,4 +118,15 @@ def WSA_tree(N, tablica):
             tree.__init__(root,0, tablica[i][3])
     WSA_subtree(tree, N, tablica)
     return tree
+
+  
+
+print "Minimize "
+f = True
+for i in range(N):
+    if f:
+        f = False
+    else:
+        print '+',
+    print "x" + str(i),
                       
