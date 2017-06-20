@@ -139,7 +139,7 @@ def warunek(tree, N):
         if f:
             f=False
         else:
-            print 'x',
+            print '+',
         print "x" + str(i),
     print '>=', tree.min_dep
     for i in range(x):
