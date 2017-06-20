@@ -145,4 +145,24 @@ def warunek(tree, N):
     for i in range(x):
         warunek(tree.getChilds()[i], N)
     return 0
+  
+A=WSA_tree(N,tablica)
+warunek(A, N)
+
+g=True
+for i in range(N):
+  if g:
+    g=False
+  else:
+    print "0<= x" + str(i) + " <=1\n",
+    
+print " Generals"
+
+h=True
+for i in range(N):
+  if h:
+    h=False
+  else:
+    print "x" + str(i) "\n",
+  
                       
