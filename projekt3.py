@@ -1,3 +1,6 @@
+import numpy as np 
+import numpy.linalg 
+
 #wczytywanie pliku txt
 f = open("file.txt")
 tablica = []
@@ -6,10 +9,7 @@ while line!="":
   n_line = line.replace("\n", "")
   tablica.append(n_line)
   line = f.readline()
-  
-import numpy as np 
-import numpy.linalg 
-tablica=np.array([[1,0,1,2], [2,0,1,2], [2,1,2,0], [2,1,0,1], [1,3,0,0]])
+
 N=5
 
 class Node:
