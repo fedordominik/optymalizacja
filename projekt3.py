@@ -85,7 +85,7 @@ class Node:
                         
 def WSA_subtree(parent, N, tablica):
     for i in range(N):
-        if tab[i][0]==parent.name and i!=parent.name:
+        if tablica[i][0]==parent.name and i!=parent.name:
             tree=Node()
             tree.__init__(i, parent, tablica[i][2])
             parent.addChild(tree)
@@ -103,7 +103,7 @@ def WSA_tree(N, tablica):
     
 def union_subtree(parent, N, tablica):
     for i in range(N):
-        if tab[i][1]==parent.name and i!=parent.name:
+        if tablica[i][1]==parent.name and i!=parent.name:
             tree=Node()
             tree.__init__(i, parent, tablica[i][3])
             parent.addChild(tree)
