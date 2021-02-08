@@ -1,4 +1,4 @@
-
+#komentarz dodany dla sprawdzenia
 print "Maximize "
 n=8
 f = True
@@ -87,6 +87,8 @@ for i in range(1,n+1):
         print chr(x) + str(y+n-i),
         y=y+1
     print'<=1'
+    
+    print'cos'
      
     
     
